@@ -2,3 +2,26 @@
     display:grid;
     grid-template-columns: repeat(3, 1fr);
 }
+.button-service{
+    background-color: #56cee6;
+    color: #fff;
+    height: 45px;
+    width: 100%;
+    border-radius: 6px;
+    border: none;
+    font-size: 17px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+.button-service:hover{
+    background-color: #1b6883;
+    color: #fff;
+}
+.card{
+    border-radius:  10px;
+    height: 550px;
+}
+.banner{
+    background-size: cover;
+    
+}

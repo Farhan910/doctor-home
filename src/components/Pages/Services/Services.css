@@ -1,0 +1,15 @@
+
+.text-service{
+    font-size:  65px;
+    margin-top: 200px;
+    
+}
+.banner-container{
+    display: flex;
+    justify-content: space-between;
+    
+}
+.card-container{
+    margin-top: 200px;
+
+}

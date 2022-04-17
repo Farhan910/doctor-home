@@ -1,17 +1,27 @@
 import React from "react";
-import { Button, Card } from "react-bootstrap";
+import { Card } from "react-bootstrap";
+import {useNavigate } from "react-router-dom";
 import "./ServicesCard.css";
 
+
+
 const ServicesCard = ({ service }) => {
-  const { id, name, img } = service;
+    const { id, name, img, comment } = service;
+    
+    const navigate = useNavigate();
+
+  
+
+  
   return (
-    <div >
-      <Card style={{ width: "25rem" , height: "35rem" }}>
-        <Card.Body>
+    <div>
+      <Card className="card ">
+        <Card.Body className="p-0">
           <img className="w-100 " src={img} alt={img} />
-          <Card.Title>Name : {id}</Card.Title>
-          <Card.Text>Id {name}</Card.Text>
-          <Button variant="primary">Go somewhere</Button>
+          <Card.Title>Name : {name}</Card.Title>
+          <Card.Text>Id {id}</Card.Text>
+          <p>Comment : {comment}</p>
+          <button onClick={() => navigate('/checkout')} className="button-service ">Go somewhere</button>
         </Card.Body>
       </Card>
     </div>
