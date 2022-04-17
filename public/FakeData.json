@@ -1,0 +1,44 @@
+[
+    {
+        "id": "01",
+        "name": "BMW",
+        "img": "https://i.ibb.co/nMBH1kJ/doctor-5710152-960-720.jpg",
+        "price" : "1507"
+
+    },
+    {
+        "id": "01",
+        "name": "BMW",
+        "img": "https://i.ibb.co/RP9MBB6/doctor-1228627-960-720.webp",
+        "price" : "1507"
+
+    },
+    {
+        "id": "01",
+        "name": "BMW",
+        "img": "https://i.ibb.co/ZLyKbMS/doctor-5835366-960-720.jpg",
+        "price" : "1507"
+
+    },
+    {
+        "id": "01",
+        "name": "BMW",
+        "img": "https://i.ibb.co/nMBH1kJ/doctor-5710152-960-720.jpg",
+        "comment" : " Wonderful experience with (Clinic name). Dr. (Name) was a wonderful surgeon, and the staff was always helpful and kind. They ensured I had a smooth prep, surgery, and follow-up. I am so glad I chose (Clinic name) and would highly recommend to anyone."
+
+    },
+    {
+        "id": "01",
+        "name": "BMW",
+        "img": "https://i.ibb.co/RP9MBB6/doctor-1228627-960-720.webp",
+        "comment" : "Dr. (Name) is incredible. Not only has she taken great care of my health, but also she is lovely to speak with at every appointment. It’s rare to find a doctor that combines such personal touches and care for a patient as a person with outstanding quality of medical care. I highly recommend becoming her patient!"
+
+    },
+    {
+        "id": "01",
+        "name": "BMW",
+        "img": "https://i.ibb.co/ZLyKbMS/doctor-5835366-960-720.jpg",
+        "price" : "1507"
+
+    }
+]

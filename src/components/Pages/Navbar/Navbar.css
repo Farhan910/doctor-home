@@ -1,0 +1,13 @@
+.navbar-container{
+    background-color: #56cee6;
+    height: 75px;
+}
+.links{
+    text-decoration: none;
+    color: #fff;
+}
+.links:hover{
+    color: #1b6883;
+    border-radius: 3px;
+    
+}
