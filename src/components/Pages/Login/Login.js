@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { Button, Form, ToastContainer } from "react-bootstrap";
+import { Button, Form } from "react-bootstrap";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import {
   useAuthState,
   useSendPasswordResetEmail,
@@ -7,10 +9,10 @@ import {
   useSignInWithGoogle,
 } from "react-firebase-hooks/auth";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import auth from "../../../firebase.init";
 import "./Login.css";
+import Loading from "../../Loading/Loading";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -18,47 +20,32 @@ const Login = () => {
 
   const [password, setPassword] = useState("");
 
-  const [signInWithEmailAndPassword, hookError,error] =
+  const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
-  const [signInWithGoogle, googleError] = useSignInWithGoogle(auth);
+  const [signInWithGoogle] = useSignInWithGoogle(auth);
 
   const [sendPasswordResetEmail, sending, error1] =
     useSendPasswordResetEmail(auth);
 
   const location = useLocation();
   const from = location.state?.from?.pathname || "/checkout";
-  const [user] = useAuthState(auth);
+  const [user1] = useAuthState(auth);
 
   const navigate = useNavigate();
-  if (user) {
+  if (user1) {
     navigate(from, { replace: true });
   }
 
-  
-  useEffect(() => {
-    const allError = hookError || googleError|| error;
-    if(allError){
-        switch(allError?.code){
-            case "auth/invalid-email":
-                toast("Invalid email provided, please provide a valid email");
-                break;
-            
-            case "auth/invalid-password":
-                toast("Wrong password. Intruder!!")
-                break;
-            default:
-                toast("something went wrong")
-        }
-    }
-}, [hookError, googleError])
-  
- 
+  if (loading) {
+    return <Loading />;
+  }
+  if (error) {
+    toast(error.message);
+  }
   
 
   return (
     <div className="w-100 m-auto mt-5">
-
-      
       <Form.Group
         className="mb-3 w-25 m-auto"
         controlId="formBasicEmail "
@@ -70,7 +57,7 @@ const Login = () => {
           type="email"
           placeholder="Enter email"
           required
-          onChange={(e) => setEmail(e.target.value)}
+          onBlur={(e) => setEmail(e.target.value)}
         />
       </Form.Group>
 
@@ -83,9 +70,9 @@ const Login = () => {
         <Form.Control
           type="password"
           placeholder="Password"
-          onChange={(e) => setPassword(e.target.value)}
+          onBlur={(e) => setPassword(e.target.value)}
         />
-        <ToastContainer/>
+        <ToastContainer />
       </Form.Group>
 
       <div className="d-flex justify-content-center ">
@@ -97,6 +84,7 @@ const Login = () => {
           Submit
         </Button>
       </div>
+
       <div className="d-flex justify-content-center">
         <button
           className="button-service w-25 d-block"
@@ -108,28 +96,20 @@ const Login = () => {
       <p className="d-flex justify-content-center">
         Don't have an account? <Link to="/signup">Sign up first</Link>
       </p>
-     
-
-      <div className="d-flex justify-content-center">
-        <input className=" w-25 d-block mb-2"
-          type="email"
-          value={email1}
-          onChange={(e) => setEmail1(e.target.value)}
-        />
-        
-       
-      </div>
-
-      <div className="d-flex justify-content-center">
-      <button className="button-service w-25 "
+      <p className="d-flex justify-content-center ">
+        Don't have an account?{" "}
+        <button
+          className="button-reset"
           onClick={async () => {
-            await sendPasswordResetEmail(email1);
+            await sendPasswordResetEmail(email);
+            toast("Sent email");
           }}
         >
           Reset password
         </button>
-      </div>
-      
+      </p>
+
+      <ToastContainer />
     </div>
   );
 };

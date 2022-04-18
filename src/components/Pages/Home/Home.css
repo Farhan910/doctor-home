@@ -10,3 +10,34 @@
     width:200px;
     align-items: center;
 }
+
+@media screen and (max-width: 590px) {
+    .card-container{
+        display:grid;
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+.nav-name{
+    font-size: 15px;
+    padding-right: 20px;
+}
+
+.service-first-part{
+    display: block;
+}
+
+.service-first-image{
+    display: block;
+}
+.text-service{
+    text-align: center;
+    
+}
+.banner-container{
+   display: block;
+}
+.links{
+    font-size: 10px;
+}
+};
+    

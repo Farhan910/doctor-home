@@ -13,7 +13,7 @@ const Navbar = () => {
   return (
     <div className="d-flex navbar-container sticky-top ">
       <div className="ms-5 mt-3">
-        <h2>DOCTOR</h2>
+        <h2 className="nav-name">Doctor Muhammad Ibrahim</h2>
       </div>
       <div className="ms-auto me-5 mt-4 ">
         <Link className=" links" to="/">

@@ -11,20 +11,20 @@ const Home = () => {
       <h2 className="main-text container">Services</h2>
 
       <div className="banner-container container ">
-        <div>
-          <h3 className="text-service ">
+        <div className="service-first-part text-service-first">
+          <h3 className="text-service">
             Our services for <br /> dear patients
           </h3>
           <h4 className="mt-3">Our service is running for 24/7</h4>
           <p>
             {" "}
-            Great experience! Made a same day appointment on (Clinic name) and
+            Great experience! Made a same day appointment on Jatrabari clinic and
             got in right away. <br /> The front desk staff and the medical
-            assistant were very nice and helpful. <br /> Dr. (Name) was great,
+            assistant were very nice and helpful. <br /> Dr. Muhammad Ibrahim was great,
             gave realistic expectations and timelines.
           </p>
         </div>
-        <div>
+        <div className="service-first-image">
           <img className="w-100 image-container" src={banner} alt="banner" />
         </div>
       </div>

@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Button, Form } from "react-bootstrap";
-import { useAuthState} from "react-firebase-hooks/auth";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import {
@@ -9,54 +9,45 @@ import {
 } from "react-firebase-hooks/auth";
 import { toast, ToastContainer } from "react-toastify";
 import auth from "../../../firebase.init";
+import Loading from "../../Loading/Loading";
 
 const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [createUserWithEmailAndPassword, hookError] =
+  const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth);
 
-    
-
-  const [signInWithGoogle, googleError] = useSignInWithGoogle(auth,{sendEmailVerification: true });
-  
-  
+  const [signInWithGoogle] = useSignInWithGoogle(auth, {
+    sendEmailVerification: true,
+  });
 
   const location = useLocation();
   const from = location.state?.from?.pathname || "/checkout";
-  const [user] = useAuthState(auth);
-
+  const [user1] = useAuthState(auth);
 
   const navigate = useNavigate();
-  if (user) {
-    navigate(from, {replace:true});
+  if (user1) {
+    navigate(from, { replace: true });
   }
 
-  useEffect(() => {
-    if (hookError || googleError) {
-        switch (hookError?.code) {
-            case "auth/invalid-email":
-                toast("Invalid email provided, please provide a valid email");
-                break;
-            case "auth/invalid-password":
-                toast("Wrong password. Intruder!!");
-                break;
-            default:
-                toast("something went wrong");
-        }
-    }
-}, [hookError]);
+  if(loading) {
+    return <Loading/>
+  }
+
+  if (error) {
+    toast(error.message);
+  }
 
   return (
     <div className="w-100 m-auto mt-5">
       <Form.Group className="mb-3 w-25 m-auto" controlId="formBasicEmail">
-      <h2 className="mb-2">Sign Up</h2>
+        <h2 className="mb-2">Sign Up</h2>
         <Form.Label>Email address</Form.Label>
         <Form.Control
           type="email"
           placeholder="Enter email"
           required
-          onChange={(e) => setEmail(e.target.value)}
+          onBlur={(e) => setEmail(e.target.value)}
         />
       </Form.Group>
 
@@ -65,7 +56,7 @@ const SignUp = () => {
         <Form.Control
           type="password"
           placeholder="Password"
-          onChange={(e) => setPassword(e.target.value)}
+          onBlur={(e) => setPassword(e.target.value)}
         />
       </Form.Group>
 
@@ -77,6 +68,7 @@ const SignUp = () => {
         >
           Submit
         </Button>
+        
       </div>
       <div className="d-flex justify-content-center">
         <button
@@ -89,7 +81,7 @@ const SignUp = () => {
       <ToastContainer />
 
       <p className="d-flex justify-content-center">
-         have an account?  <Link to="/login"> Login please</Link>
+        have an account? <Link to="/login"> Login please</Link>
       </p>
     </div>
   );

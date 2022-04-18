@@ -7,7 +7,7 @@ import auth from "../../firebase.init";
 import "./ServicesCard.css";
 
 const ServicesCard = ({ service }) => {
-  const { id, subject, img, comment } = service;
+  const { visit, subject, img, comment } = service;
 const [user] = useAuthState(auth)
   
 const navigate = useNavigate()
@@ -21,9 +21,9 @@ const navigate = useNavigate()
         <Card.Body className="p-0">
           <img className="w-100 " src={img} alt={img} />
           <div className="card-text">
-          <Card.Title>Subject : {subject}</Card.Title>
-            <Card.Text>Id {id}</Card.Text>
-            <p>Comment : {comment}</p>
+          <Card.Title className="text-primary">Subject : {subject}</Card.Title>
+            <Card.Text className="text">Doctor Visit : {visit}</Card.Text>
+            <p className="text">Comment : {comment}</p>
           </div>
           <button
              className="button-service" onClick={() => navigate(user? "/checkout" : "/login")}>
