@@ -16,7 +16,6 @@ import Loading from "../../Loading/Loading";
 
 const Login = () => {
   const [email, setEmail] = useState("");
-  const [email1, setEmail1] = useState("");
 
   const [password, setPassword] = useState("");
 
