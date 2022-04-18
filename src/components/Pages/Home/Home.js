@@ -1,7 +1,7 @@
 import React from "react";
 import Banner from "../Banner/Banner";
 import Services from "../Services/Services";
-import banner from "../../../../src/components/Images/banner.png";
+import banner from "../../../../src/components/Images/banner.jpg";
 import "./Home.css";
 
 const Home = () => {
@@ -25,7 +25,7 @@ const Home = () => {
           </p>
         </div>
         <div className="service-first-image">
-          <img className="w-100 image-container" src={banner} alt="banner" />
+          <img className="  image-container" src={banner} alt="banner" />
         </div>
       </div>
       <div className="home-service">
