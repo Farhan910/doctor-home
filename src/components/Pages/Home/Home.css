@@ -3,6 +3,10 @@
     
 }
 .main-text{
-    margin-top: 180px;
+    margin-top: 140px;
     font-size: 50px;
+    text-align: center;
+    border-bottom: 1px solid black;
+    width:200px;
+    align-items: center;
 }
