@@ -42,7 +42,7 @@ const Blogs = () => {
         </h4>
 
         <h2 className="mt-5 text-primary">
-          ৩নং প্রশ্ন ঃ  Firebase Authentication ছাড়া আর কি কি সার্ভিস প্রদান করে ?
+          ৩নং প্রশ্ন  :  Firebase Authentication ছাড়া আর কি কি সার্ভিস প্রদান করে ?
         </h2>
         <h4>Firebsae authentication ছাড়া এর মাধ্যমে ক্লায়েন্ট সাইডের ডাটা বেজ থেকে সরাসরি
           ডাটা এনে ব্যবহার করা যায়। লাইভ সার্ভার এ কোড হস্ট করা যায়। ইত্যাদি ইত্যাদি কাজ করা যায় । </h4>
